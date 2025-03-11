@@ -1,10 +1,10 @@
-#importamos pymysql
+'''#importamos pymysql
 import pymysql
 
 #creamos la conexion
-conexion = pymysql.connect(host='localhost', user='root', password='', db='sakila')
+conexion = pymysql.connect(host='localhost', user='root', password='', db='tiendamvc')
 
-'''try:
+try:
     with conexion.cursor() as cursor:
         #creamos la consulta
         consulta = "SELECT * FROM actor"
@@ -20,7 +20,7 @@ except Exception as e:
     
 finally:
     conexion.close()
-    print("Conexion cerrada")'''
+    print("Conexion cerrada")
     
 try:
     with conexion.cursor() as cursor:
@@ -40,4 +40,4 @@ try:
 except Exception as e:
     print(f"Error al insertar datos: {e}")
 finally:
-    conexion.close()
+    conexion.close()'''
