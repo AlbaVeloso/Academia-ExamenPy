@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Academia</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="{{ url_for('login') }}" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" value="Login">
-    </form>
-    <h2>{{mensaje}}</h2>
+    <h1>Academia Postal</h1>
+    <a href="{{ url_for('registrar_alumno') }}">Registrar Alumno</a>
+    <h2>Gestión de calificaciones</h2>
+    <ul>
+        {% for alumno in alumnos %}
+        <li>{{ alumno.nombre }} 
+            <a href="{{ url_for('asignar_calificaciones', idalumno=alumno.idalumno) }}">Calificar</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Calificaciones de alumnos</h2>
+    <a href="{{ url_for('mostrar_calificaciones') }}">Ver Calificaciones de Todos los Alumnos</a>
 </body>
 </html>
+
+
+

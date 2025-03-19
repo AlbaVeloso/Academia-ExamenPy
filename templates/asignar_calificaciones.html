@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Asignar Calificaciones</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a>
+    </nav>
+    <h1>Asignar Calificaciones a {{ alumno['nombre'] }}</h1>
+    <form method="POST">
+        <label for="asignatura">Asignatura:</label>
+        <select id="asignatura" name="asignatura" required>
+            {% for asignatura in asignaturas %}
+                <option value="{{ asignatura.idasignatura }}">{{ asignatura.nombre }}</option>
+            {% endfor %}
+        </select>
+        <label for="nota">Nota:</label>
+        <input type="number" id="nota" name="nota" step="0.1" min="0" max="10" required>
+        <button type="submit">Asignar Calificación</button>
+    </form>
+    <a class="button" href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
